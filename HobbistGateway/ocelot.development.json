@@ -1,0 +1,71 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Communication/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5089"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Communication/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Options" ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserProfileCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/UserProfile/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Delete", "Options" ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PostCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Post/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Delete", "Options" ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/HashTagCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Hashtag/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Delete", "Options" ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5099"
+  }
+}

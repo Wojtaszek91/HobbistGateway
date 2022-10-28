@@ -1,0 +1,122 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5099"
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Communication/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5089"
+        }
+      ],
+      "AddHeadersToRequest": {
+        "user_name": "Claims[name] > value > |"
+      },
+      "UpstreamPathTemplate": "/api/Communication/{everything}",
+      "UpstreamHttpMethod": [ "Post", "Get", "Options" ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/hobbistHub/{everything}",
+      "DownstreamScheme": "ws",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5089"
+        }
+      ],
+      "UpstreamPathTemplate": "/hobbistHub/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE", "OPTIONS" ]
+    }
+    {
+      "DownstreamPathTemplate": "/api/HashTagCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/HashTag/{everything}",
+      "UpstreamHttpMethod": [
+        "Post",
+        "Get",
+        "Delete",
+        "Options"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PostCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Post/{everything}",
+      "UpstreamHttpMethod": [
+        "Post",
+        "Get",
+        "Delete",
+        "Options"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserProfileCQRS/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/UserProfile/{everything}",
+      "UpstreamHttpMethod": [
+        "Post",
+        "Get",
+        "Delete",
+        "Options"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/PostMark/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "5001"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/PostMark/{everything}",
+      "UpstreamHttpMethod": [
+        "Post",
+        "Get",
+        "Delete",
+        "Options"
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProdiverKey": "Bearer",
+        "AllowedScopes": []
+      }
+    }
+  ]
+}
